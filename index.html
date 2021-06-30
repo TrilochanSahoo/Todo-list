@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        * { 
+            padding: 0; 
+            margin: 0; 
+        } 
+        body {
+            width: 100vw; 
+            min-height: 100vh; 
+            font-family: sans-serif;
+            background-color: #10969b; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .container{
+            margin: 4rem 0;
+            min-width: 20rem; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px; 
+            background-color: #ffffffdc;
+        }
+        h1{
+            padding: 4rem 0 0 0;
+            font-size: 2rem; 
+        }
+        hr{
+            border-top: 2px solid black;
+            width:6rem;
+        }
+        input{
+            width: 250px; 
+            border: none; 
+            outline: none; 
+            border-radius: 5px; 
+            padding: 10px; 
+            margin: 1rem; 
+            font-size: 1rem;
+        }
+        button{
+            margin-bottom: 1rem;
+            background-color: rgba(255, 255, 255, 0); 
+            color: #10969b; 
+            border: 2px solid #10969b; 
+            outline: none; 
+            border-radius: 5px; 
+            padding: 10px; 
+            font-size: 1rem;
+        }
+        #display{
+            padding-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+        li{
+            font-size: 1rem;
+            padding-top: 2px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: #10969b; 
+            color: #ffffffdc; 
+            border: 2px solid #10969b; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo list</h1>
+        <hr>
+        <input type="text" id="newItem">
+        <button id="btn">Add item</button>
+        <div id="display">
+            <h3>List</h3>
+            <ul></ul>
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById('btn')
+        const input = document.getElementById('newItem')
+        const display = document.getElementById('display')
+        var itemList = ['Food','vegetables']
+        
+        function displayList(item){
+            display.innerHTML+="<li>"+item+"</li>"
+            }
+            
+        itemList.forEach(displayList)
+        btn.addEventListener('click',()=>{
+            let newItem = input.value
+            itemList.push(newItem)
+            displayList(newItem)
+            input.value=''
+        })
+
+    </script>
+</body>
+</html>
